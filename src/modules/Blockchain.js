@@ -13,7 +13,7 @@ class Blockchain {
     if (this.blocks.length === 0) {
       block.previousHash = '0000000000000000000000000000000000000000000000000000000000000000'
       block.hash = this.generateHash(block)
-      block.addTransaction(new Transaction('', 'genesis', 1000000000))
+      block.addTransaction(new Transaction('', 'EB60c0e43b6c7791bc152e009819bb0ab056', 1000000000))
     }
     this.blocks.push(block)
   }
@@ -58,6 +58,13 @@ class Blockchain {
     jsonfile.writeFile(path, this.blocks, {spaces: 2}, (err) => {
       console.warn(err)
     })
+  }
+
+  generatePublicAddress (privateKey) {
+    let publicAddress = sha256(privateKey)
+    publicAddress = '' + parseInt(publicAddress, 16)
+    publicAddress = sha256(publicAddress.split('').map((number, i) => number * i))
+    return 'EB' + publicAddress.slice(0, 34)
   }
 }
 
