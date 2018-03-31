@@ -1,0 +1,26 @@
+{
+  "name": "es6-blockchain",
+  "version": "1.0.0",
+  "description": "Experimental Blockchain implementation written in ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolsw2/ES6-Blockchain.git"
+  },
+  "keywords": [
+    "blockchain",
+    "javascript"
+  ],
+  "author": "Karol Świerczek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karolsw2/ES6-Blockchain/issues"
+  },
+  "homepage": "https://github.com/karolsw2/ES6-Blockchain#readme",
+  "dependencies": {
+    "js-sha256": "^0.9.0"
+  }
+}
