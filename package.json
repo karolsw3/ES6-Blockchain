@@ -4,7 +4,7 @@
   "description": "Experimental Blockchain implementation written in ES6",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "babel-node --presets es2015 ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/karolsw2/ES6-Blockchain#readme",
   "dependencies": {
-    "js-sha256": "^0.9.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "js-sha256": "^0.9.0",
+    "jsonfile": "^4.0.0"
   }
 }

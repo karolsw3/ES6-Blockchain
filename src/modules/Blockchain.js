@@ -1,5 +1,6 @@
 import Block from './Block'
 import sha256 from 'js-sha256'
+import jsonfile from 'jsonfile'
 
 class Blockchain {
   constructor (genesisBlock) {
@@ -35,6 +36,26 @@ class Blockchain {
       block.nonce += 1
       hash = sha256(block.key)
     }
+    return hash
+  }
+
+  getPreviousBlock () {
+    return this.blocks[this.blocks.length - 1]
+  }
+
+  import (path) {
+    jsonfile.readFile(path, (err, obj) => {
+      if (err !== null) {
+        console.warn(err)
+      }
+      this.blocks = obj
+    })
+  }
+
+  export (path) {
+    jsonfile.writeFile(path, this.blocks, {spaces: 2}, (err) => {
+      console.warn(err)
+    })
   }
 }
 
