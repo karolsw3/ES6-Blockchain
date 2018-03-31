@@ -60,11 +60,34 @@ class Blockchain {
     })
   }
 
+  checkAddressBalance (address) {
+    let balance = 0
+    this.blocks.map(block => {
+      block.transactions.map(transaction => {
+        if (transaction.from === address) balance -= transaction.amount
+        if (transaction.to === address) balance += transaction.amount
+      })
+    })
+    return balance
+  }
+
   generatePublicAddress (privateKey) {
     let publicAddress = sha256(privateKey)
     publicAddress = '' + parseInt(publicAddress, 16)
     publicAddress = sha256(publicAddress.split('').map((number, i) => number * i))
     return 'EB' + publicAddress.slice(0, 34)
+  }
+
+  generateTransaction ({from, to, amount, privateKey}) {
+    if (from !== this.generatePublicAddress(privateKey)) {
+      console.log('Invalid private key!')
+    } else if (amount < 0 && this.checkAddressBalance(from) >= amount) {
+      console.log('Invalid amount!')
+    } else {
+      let transaction = new Transaction(from, to, amount)
+      let block = this.getNextBlock([transaction])
+      this.addBlock(block)
+    }
   }
 }
 
