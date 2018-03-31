@@ -1,17 +1,19 @@
 import Block from './Block'
+import Transaction from './Transaction'
 import sha256 from 'js-sha256'
 import jsonfile from 'jsonfile'
 
 class Blockchain {
-  constructor (genesisBlock) {
+  constructor () {
     this.blocks = []
-    this.addBlock(genesisBlock)
+    this.addBlock(new Block())
   }
 
   addBlock (block) {
     if (this.blocks.length === 0) {
-      block.previousHash = '0000000000000000'
+      block.previousHash = '0000000000000000000000000000000000000000000000000000000000000000'
       block.hash = this.generateHash(block)
+      block.addTransaction(new Transaction('', 'genesis', 1000000000))
     }
     this.blocks.push(block)
   }

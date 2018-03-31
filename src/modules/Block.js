@@ -5,6 +5,7 @@ class Block {
     this.hash = ''
     this.nonce = 0
     this.transactions = []
+    this.timestamp = new Date()
   }
 
   addTransaction (transaction) {
