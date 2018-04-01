@@ -1,10 +1,11 @@
 import Blockchain from './modules/Blockchain'
-import Transaction from './modules/Transaction'
+import Miner from './Miner'
 
 let blockchain = new Blockchain()
+let miner = new Miner(blockchain, 'EB60c0e43b6c7791bc152e009819bb0ab056')
 
-let transaction = new Transaction('EB60c0e43b6c7791bc152e009819bb0ab056', blockchain.generatePublicAddress('eureka'), '10')
-let block = blockchain.getNextBlock([transaction])
-blockchain.addBlock(block)
+blockchain._import('./experimental_blockchains/blockchain.json', () => {
+  miner.startMining()
+})
 
-blockchain.export('./experimental_blockchains/blockchain.json')
+// console.log(blockchain._checkAddressBalance('EB60c0e43b6c7791bc152e009819bb0ab056'))
