@@ -6,6 +6,9 @@ import jsonfile from 'jsonfile'
 class Blockchain {
   constructor () {
     this.blocks = []
+    this.unconfirmedTransactions = []
+    this.luckyNumber = this._generateLuckyNumber()
+    this.blockReward = 1000000
     this.addBlock(new Block())
   }
 
@@ -13,7 +16,7 @@ class Blockchain {
     if (this.blocks.length === 0) {
       block.previousHash = '0000000000000000000000000000000000000000000000000000000000000000'
       block.hash = this.generateHash(block)
-      block.addTransaction(new Transaction('', 'EB60c0e43b6c7791bc152e009819bb0ab056', 1000000000))
+      block.addTransaction(new Transaction('No input (newly generated coins)', 'EB60c0e43b6c7791bc152e009819bb0ab056', 1000000000))
     }
     this.blocks.push(block)
   }
@@ -45,22 +48,34 @@ class Blockchain {
     return this.blocks[this.blocks.length - 1]
   }
 
-  import (path) {
+  mineTheBlock () {
+    let block = this.getNextBlock(this.unconfirmedTransactions)
+    this.blocks.push(block)
+    this.unconfirmedTransactions = []
+    this.luckyNumber = this._generateLuckyNumber()
+  }
+
+  _generateLuckyNumber () {
+    return Math.round(Math.random() * 999)
+  }
+
+  _import (path, callback) {
     jsonfile.readFile(path, (err, obj) => {
       if (err !== null) {
         console.warn(err)
       }
       this.blocks = obj
+      callback()
     })
   }
 
-  export (path) {
+  _export (path) {
     jsonfile.writeFile(path, this.blocks, {spaces: 2}, (err) => {
       console.warn(err)
     })
   }
 
-  checkAddressBalance (address) {
+  _checkAddressBalance (address) {
     let balance = 0
     this.blocks.map(block => {
       block.transactions.map(transaction => {
@@ -71,22 +86,34 @@ class Blockchain {
     return balance
   }
 
-  generatePublicAddress (privateKey) {
+  _tryToMineTheBlock (luckyNumber, rewardAddress, callback) {
+    let blockMined = false
+    if (luckyNumber === this.luckyNumber) {
+      let transaction = new Transaction('No input (newly generated coins)', rewardAddress, this.blockReward)
+      this.unconfirmedTransactions.push(transaction)
+      this.mineTheBlock()
+      console.log('Block mined! ' + this.blockReward + ' coins reward sent to ' + rewardAddress)
+      blockMined = true
+      callback(blockMined)
+    }
+  }
+
+  _generatePublicAddress (privateKey) {
     let publicAddress = sha256(privateKey)
     publicAddress = '' + parseInt(publicAddress, 16)
     publicAddress = sha256(publicAddress.split('').map((number, i) => number * i))
     return 'EB' + publicAddress.slice(0, 34)
   }
 
-  generateTransaction ({from, to, amount, privateKey}) {
-    if (from !== this.generatePublicAddress(privateKey)) {
+  _generateTransaction ({from, to, amount, privateKey}) {
+    if (from !== this._generatePublicAddress(privateKey)) {
       console.log('Invalid private key!')
-    } else if (amount < 0 && this.checkAddressBalance(from) >= amount) {
+    } else if (amount < 0 && this._checkAddressBalance(from) >= amount) {
       console.log('Invalid amount!')
     } else {
       let transaction = new Transaction(from, to, amount)
-      let block = this.getNextBlock([transaction])
-      this.addBlock(block)
+      this.unconfirmedTransactions.push(transaction)
+      console.log('Transaction sent! Unconfirmed transactions:' + this.unconfirmedTransactions.length)
     }
   }
 }
