@@ -13,6 +13,7 @@ class Blockchain {
     this.unconfirmedTransactions = []
     this.luckyNumber = this._generateLuckyNumber()
     this.blockReward = 50
+    this.addBlock(new Block())
   }
 
   /**
