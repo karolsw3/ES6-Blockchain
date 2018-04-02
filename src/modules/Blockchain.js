@@ -12,8 +12,16 @@ class Blockchain {
     this.blocks = []
     this.unconfirmedTransactions = []
     this.luckyNumber = this._generateLuckyNumber()
-    this.blockReward = 1000000
+    this.blockReward = 50
     this.addBlock(new Block())
+  }
+
+  /**
+   * Hardness of mining the block depends on the hardness level.
+   * It's calculated using basic algorithm
+   */
+  get hardnessLevel () {
+    return (this.blocks.length + 1) * 10 + 8000
   }
 
   /**
@@ -24,7 +32,6 @@ class Blockchain {
     if (this.blocks.length === 0) {
       block.previousHash = '0000000000000000000000000000000000000000000000000000000000000000'
       block.hash = this.generateHash(block)
-      block.addTransaction(new Transaction('No input (newly generated coins)', 'EB60c0e43b6c7791bc152e009819bb0ab056', 1000000000))
     }
     this.blocks.push(block)
   }
@@ -85,7 +92,7 @@ class Blockchain {
    * @returns {number} - Special number used to encipher the blockchain or to decipher it by trying to mine the block
    */
   _generateLuckyNumber () {
-    return Math.round(Math.random() * 999)
+    return Math.round(Math.random() * this.hardnessLevel)
   }
 
   /**
