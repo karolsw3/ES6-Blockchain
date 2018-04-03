@@ -1,6 +1,15 @@
 html
   head
+    title ES6-Blockchain explorer
+    meta(charset='UTF-8')
     link(rel='stylesheet' href='explorer/build/css/style.css')
   body
     nav.menu
+      .menu__logo ES6-Blockchain explorer
+      ul.menu__buttons
+        li.menu__button Dashboard
+        li.menu__button Blocks
+        li.menu__button Addresses
+        input.menu__searchbar(type='text' placeholder='Search specified block index')
+
     script(src='explorer/build/js/vue.js')

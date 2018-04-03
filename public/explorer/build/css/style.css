@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
 html,
 body {
   margin: 0 auto;
   padding: 0;
+  font-family: 'Lato';
+  color: #2d3142;
+}
+ul {
+  list-style-type: none;
 }
 .menu {
   height: 60px;
@@ -9,4 +15,42 @@ body {
   padding: 5px 30px;
   box-sizing: border-box;
   background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu__logo {
+  cursor: pointer;
+  transition-duration: 0.14s;
+}
+.menu__logo:hover {
+  opacity: 0.9;
+}
+.menu__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu__searchbar {
+  min-width: 200px;
+  background: #fff;
+  color: #2d3142;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+}
+.menu__button {
+  min-width: 100px;
+  margin: 0 6px;
+  text-align: center;
+  background: #ef8354;
+  border-radius: 5px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  transition-duration: 0.14s;
+}
+.menu__button:hover {
+  opacity: 0.9;
 }

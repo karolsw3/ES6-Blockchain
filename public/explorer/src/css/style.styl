@@ -1,6 +1,23 @@
+ @import url('https://fonts.googleapis.com/css?family=Lato')
+
+// Leading colors
+leading-color-1 = #2d3142
+leading-color-2 = #4f5d75
+leading-color-3 = #bfc0c0
+leading-color-4 = #ef8354
+
+// Defaults
+border-radius = 5px
+transition-duration = 0.14s
+hover-opacity = 0.9
+
 html, body
   margin 0 auto
   padding 0
+  font-family 'Lato'
+  color leading-color-1 
+ul
+  list-style-type none
 
 .menu
   height 60px
@@ -8,3 +25,35 @@ html, body
   padding 5px 30px
   box-sizing border-box
   background #f4f4f4
+  display flex
+  align-items center
+  justify-content space-between
+  &__logo
+    cursor pointer
+    transition-duration transition-duration
+    &:hover
+      opacity hover-opacity
+  &__buttons
+    display flex
+    align-items center
+    justify-content center
+  &__searchbar
+    min-width 200px
+    background white
+    color leading-color-1
+    border none
+    border-radius border-radius
+    padding 12px
+  &__button
+    min-width 100px
+    margin 0 6px
+    text-align center
+    background leading-color-4
+    border-radius border-radius
+    padding 8px 12px
+    box-sizing border-box
+    color white
+    cursor pointer
+    transition-duration transition-duration
+    &:hover
+      opacity hover-opacity
