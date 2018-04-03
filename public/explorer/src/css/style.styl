@@ -3,11 +3,11 @@
 // Leading colors
 leading-color-1 = #2d3142
 leading-color-2 = #4f5d75
-leading-color-3 = #bfc0c0
+leading-color-3 = #f4f4f4
 leading-color-4 = #ef8354
 
 // Defaults
-border-radius = 5px
+border-radius = 3px
 transition-duration = 0.14s
 hover-opacity = 0.9
 
@@ -22,12 +22,15 @@ ul
 .menu
   height 60px
   width 100%
+  position fixed
   padding 5px 30px
   box-sizing border-box
-  background #f4f4f4
+  background leading-color-3
   display flex
   align-items center
   justify-content space-between
+  z-index 3
+  top 0 !important
   &__logo
     cursor pointer
     transition-duration transition-duration
@@ -38,22 +41,65 @@ ul
     align-items center
     justify-content center
   &__searchbar
-    min-width 200px
+    min-width 230px
     background white
     color leading-color-1
     border none
     border-radius border-radius
     padding 12px
-  &__button
-    min-width 100px
     margin 0 6px
-    text-align center
-    background leading-color-4
-    border-radius border-radius
-    padding 8px 12px
+  .button
+    min-width 100px
+.button
+  margin 0 6px
+  text-align center
+  background leading-color-4
+  border-radius border-radius
+  padding 8px 12px
+  box-sizing border-box
+  color white
+  cursor pointer
+  transition-duration transition-duration
+  &:hover
+    opacity hover-opacity
+
+.dashBoard
+  margin 60px auto
+  display flex
+  justify-content center
+  align-items center
+  padding 20px
+  box-sizing border-box
+.recentBlocks
+  min-width 700px
+  border-radius border-radius
+  &__title
+    width 100%
+    padding 10px 20px
     box-sizing border-box
     color white
-    cursor pointer
-    transition-duration transition-duration
-    &:hover
-      opacity hover-opacity
+    font-weight 900
+    font-size 1.4em
+    background leading-color-2
+  table
+    width 100%
+    border-collapse collapse
+    text-align center
+  th, td
+    padding 10px 20px
+    box-sizing border-box
+    color leading-color-4
+  tr
+    width 100%
+    padding 10px 20px
+    box-sizing border-box
+    font-size 1em
+    color leading-color-1
+    &:nth-child(odd)
+      background leading-color-3
+  &__index
+    font-weight 700
+    font-size 1.1em
+  &__timestamp
+    font-style italic
+    color leading-color-2

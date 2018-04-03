@@ -12,12 +12,15 @@ ul {
 .menu {
   height: 60px;
   width: 100%;
+  position: fixed;
   padding: 5px 30px;
   box-sizing: border-box;
   background: #f4f4f4;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 3;
+  top: 0 !important;
 }
 .menu__logo {
   cursor: pointer;
@@ -32,25 +35,78 @@ ul {
   justify-content: center;
 }
 .menu__searchbar {
-  min-width: 200px;
+  min-width: 230px;
   background: #fff;
   color: #2d3142;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 12px;
+  margin: 0 6px;
 }
-.menu__button {
+.menu .button {
   min-width: 100px;
+}
+.button {
   margin: 0 6px;
   text-align: center;
   background: #ef8354;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 8px 12px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   transition-duration: 0.14s;
 }
-.menu__button:hover {
+.button:hover {
   opacity: 0.9;
+}
+.dashBoard {
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.recentBlocks {
+  min-width: 700px;
+  border-radius: 3px;
+}
+.recentBlocks__title {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.4em;
+  background: #4f5d75;
+}
+.recentBlocks table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.recentBlocks th,
+.recentBlocks td {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: #ef8354;
+}
+.recentBlocks tr {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 1em;
+  color: #2d3142;
+}
+.recentBlocks tr:nth-child(odd) {
+  background: #f4f4f4;
+}
+.recentBlocks__index {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.recentBlocks__timestamp {
+  font-style: italic;
+  color: #4f5d75;
 }

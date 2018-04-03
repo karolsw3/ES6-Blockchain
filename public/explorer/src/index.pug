@@ -7,9 +7,25 @@ html
     nav.menu
       .menu__logo ES6-Blockchain explorer
       ul.menu__buttons
-        li.menu__button Dashboard
-        li.menu__button Blocks
-        li.menu__button Addresses
+        li.button Dashboard
+        li.button Blocks
+        li.button Addresses
         input.menu__searchbar(type='text' placeholder='Search specified block index')
-
+    section.dashBoard#dashBoard
+      .recentBlocks
+        .recentBlocks__title Recent blocks
+        table
+          tr
+            th Block index
+            th Transactions
+            th Timestamp
+            th
+          tr(v-for='block in recentBlocks')
+            td.recentBlocks__index # {{block.index}}
+            td {{block.transactions.length}}
+            td.recentBlocks__timestamp {{block.timestamp}}
+            td
+              .button Show
+    script(src='explorer/build/js/axios.min.js')
     script(src='explorer/build/js/vue.js')
+    script(src='explorer/build/js/index.js')

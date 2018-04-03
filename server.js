@@ -5,6 +5,8 @@ import path from 'path'
 var app = Express()
 var blockchain = new Blockchain()
 
+blockchain._import(__dirname + '/public/blockchains/blockchain_01.json', () => {})
+
 /**
 * BLOCKCHAIN EXPLORER
 */
