@@ -29,6 +29,7 @@ class Blockchain {
    */
   get stats () {
     return [
+      {title: 'Unconfirmed transactions', content: this.unconfirmedTransactions.length},
       {title: 'Overall blocks', content: this.blocks.length},
       {title: 'Overall transactions', content: this.blocks.map(block => { return block.transactions.length }).reduce((a, b) => a + b, 0)}
     ]

@@ -100,13 +100,17 @@ ul {
   box-sizing: border-box;
   font-size: 1em;
   color: #2d3142;
+  transition-duration: 0.14s;
+}
+.recentBlocks tr:hover {
+  background: #fff;
+  opacity: 0.9;
 }
 .recentBlocks tr:nth-child(odd) {
   background: #f4f4f4;
 }
 .recentBlocks__index {
   font-weight: 700;
-  font-size: 1.1em;
 }
 .recentBlocks__timestamp {
   font-style: italic;
@@ -124,10 +128,15 @@ ul {
   margin: 10px 0;
   background: #f4f4f4;
   color: #2d3142;
+  border-left: 4px solid #ef8354;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  transition-duration: 0.14s;
+}
+.statsPanel__stats:hover {
+  opacity: 0.9;
 }
 .statsPanel__title {
   text-align: center;
