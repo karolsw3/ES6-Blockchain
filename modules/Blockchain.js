@@ -25,7 +25,7 @@ class Blockchain {
   }
 
   /**
-   * Returns specified number of recent mined blocks
+   * Returns specified quantity of recent mined blocks
    */
   getRecentBlocks (quantity) {
     let recentBlocks = []

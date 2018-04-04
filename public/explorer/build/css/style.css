@@ -75,6 +75,7 @@ ul {
 .recentBlocks__title {
   width: 100%;
   padding: 10px 20px;
+  border-radius: 3px 3px 0 0;
   box-sizing: border-box;
   color: #fff;
   font-weight: 900;
