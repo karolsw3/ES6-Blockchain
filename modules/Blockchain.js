@@ -25,6 +25,17 @@ class Blockchain {
   }
 
   /**
+   * Returns specified number of recent mined blocks
+   */
+  getRecentBlocks (quantity) {
+    let recentBlocks = []
+    for (let i = this.blocks.length - 1; (i > this.blocks.length - (quantity + 1)) && (i >= 0); i--) {
+      recentBlocks.push(this.blocks[i])
+    }
+    return recentBlocks
+  }
+
+  /**
    * Adds block to the blockchain
    * @param {object} block - Block to be added to the blockchain
    */

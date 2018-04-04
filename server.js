@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
 /**
 * BLOCKCHAIN API
 */
-app.get('/api/blocks', (req, res) => {
+app.get('/api/recentBlocks', (req, res) => {
   res.setHeader('Content-type', 'application/json')
-  res.send(JSON.stringify(blockchain.blocks))
+  res.send(JSON.stringify(blockchain.getRecentBlocks(6)))
 })
 
 app.use(Express.static('public'))

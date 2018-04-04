@@ -5,7 +5,7 @@ var app = new Vue({
   },
   mounted () {
     axios
-      .get('api/blocks')
+      .get('api/recentBlocks')
       .then((response) => {
         this.recentBlocks = response.data
       })
