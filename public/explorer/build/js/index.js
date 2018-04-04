@@ -31,6 +31,29 @@ Vue.component('recent-blocks-table', {
   `
 })
 
+Vue.component('blockchain-stats', {
+  data: function () {
+    return {
+      stats: []
+    }
+  },
+  mounted () {
+    axios
+      .get('api/stats')
+      .then((response) => {
+        this.stats = response.data
+      })
+  },
+  template: `
+    <div class="statsPanel">
+      <div class="statsPanel__stats" v-for="stat in stats">
+        <div class="statsPanel__title"> {{stat.title}} </div>
+        <div class="statsPanel__content"> {{stat.content}} </div>
+      </div>
+    </div>
+  `
+})
+
 var app = new Vue({
   el: '#dashBoard'
 })

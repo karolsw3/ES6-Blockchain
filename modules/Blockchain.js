@@ -25,6 +25,15 @@ class Blockchain {
   }
 
   /**
+   * Returns basic statistics and data about the current blockchain
+   */
+  get stats () {
+    return [
+      {title: 'Overall blocks', content: this.blocks.length},
+      {title: 'Overall transactions', content: this.blocks.map(block => { return block.transactions.length }).reduce((a, b) => a + b, 0)}
+    ]
+  }
+  /**
    * Returns specified quantity of recent mined blocks
    */
   getRecentBlocks (quantity) {

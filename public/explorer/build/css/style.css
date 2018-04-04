@@ -69,6 +69,7 @@ ul {
   box-sizing: border-box;
 }
 .recentBlocks {
+  margin: 10px;
   min-width: 700px;
   border-radius: 3px;
 }
@@ -110,4 +111,31 @@ ul {
 .recentBlocks__timestamp {
   font-style: italic;
   color: #4f5d75;
+}
+.statsPanel {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.statsPanel__stats {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 60px;
+  margin: 10px 0;
+  background: #f4f4f4;
+  color: #2d3142;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.statsPanel__title {
+  text-align: center;
+  font-size: 1em;
+  color: #4f5d75;
+}
+.statsPanel__content {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 700;
 }
