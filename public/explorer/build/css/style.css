@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: 'Lato';
   color: #2d3142;
+  font-size: 14px;
 }
 ul {
   list-style-type: none;
@@ -68,51 +69,50 @@ ul {
   padding: 20px;
   box-sizing: border-box;
 }
-.recentBlocks {
+.table {
   margin: 10px;
-  min-width: 700px;
   border-radius: 3px;
 }
-.recentBlocks__title {
+.table__title {
   width: 100%;
-  padding: 10px 20px;
+  padding: 20px;
   border-radius: 3px 3px 0 0;
   box-sizing: border-box;
   color: #fff;
   font-weight: 900;
-  font-size: 1.4em;
+  font-size: 1.2em;
   background: #4f5d75;
 }
-.recentBlocks table {
+.table table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
 }
-.recentBlocks th,
-.recentBlocks td {
+.table th,
+.table td {
   padding: 10px 20px;
   box-sizing: border-box;
   color: #ef8354;
 }
-.recentBlocks tr {
+.table tr {
   width: 100%;
   padding: 10px 20px;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: 0.85em;
   color: #2d3142;
   transition-duration: 0.14s;
 }
-.recentBlocks tr:hover {
+.table tr:hover {
   background: #fff;
   opacity: 0.9;
 }
-.recentBlocks tr:nth-child(odd) {
+.table tr:nth-child(odd) {
   background: #f4f4f4;
 }
-.recentBlocks__index {
+.table__index {
   font-weight: 700;
 }
-.recentBlocks__timestamp {
+.table__timestamp {
   font-style: italic;
   color: #4f5d75;
 }
@@ -147,4 +147,9 @@ ul {
   text-align: center;
   font-size: 1.4em;
   font-weight: 700;
+}
+@media screen and (max-width: 920px) {
+  .dashBoard {
+    flex-direction: column;
+  }
 }

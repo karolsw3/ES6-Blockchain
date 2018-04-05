@@ -9,13 +9,17 @@ html
       ul.menu__buttons
         li.button Dashboard
         li.button Blocks
-        li.button Addresses
+        li.button Wallet
         input.menu__searchbar(type='text' placeholder='Search specified block index')
     section.dashBoard#dashBoard
-      .recentBlocks
-        .recentBlocks__title Recent blocks
+      .table
+        .table__title Recent transactions
+        recent-transactions-table
+      .table
+        .table__title Recent blocks
         recent-blocks-table
       blockchain-stats
+
     script(src='explorer/build/js/axios.min.js')
     script(src='explorer/build/js/vue.js')
     script(src='explorer/build/js/index.js')

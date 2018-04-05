@@ -20,9 +20,40 @@ Vue.component('recent-blocks-table', {
         <th> </th>
       </tr>
       <tr v-for="block in blocks">
-        <td class="recentBlocks__index"># {{block.index}} </td>
+        <td class="table__index"># {{block.index}} </td>
         <td> {{block.transactions.length}} </td>
-        <td class="recentBlocks__timestamp">{{block.timestamp}} </td>
+        <td class="table__timestamp">{{block.timestamp}} </td>
+        <td>
+          <div class="button"> Show </div>
+        </td>
+      </tr>
+    </table>
+  `
+})
+
+Vue.component('recent-transactions-table', {
+  data: function () {
+    return {
+      transactions: []
+    }
+  },
+  mounted () {
+    axios
+      .get('api/recentTransactions')
+      .then((response) => {
+        this.transactions = response.data
+      })
+  },
+  template: `
+    <table>
+      <tr>
+        <th> Transaction amount </th>
+        <th> Recipient </th>
+        <th> </th>
+      </tr>
+      <tr v-for="transaction in transactions">
+        <td class="table__index">{{transaction.amount}} coins</td>
+        <td> {{transaction.to}} </td>
         <td>
           <div class="button"> Show </div>
         </td>

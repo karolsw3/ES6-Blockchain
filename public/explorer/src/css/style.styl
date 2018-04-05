@@ -16,6 +16,7 @@ html, body
   padding 0
   font-family 'Lato'
   color leading-color-1 
+  font-size 14px
 ul
   list-style-type none
 
@@ -70,18 +71,17 @@ ul
   align-items center
   padding 20px
   box-sizing border-box
-.recentBlocks
+.table
   margin 10px
-  min-width 700px
   border-radius border-radius
   &__title
     width 100%
-    padding 10px 20px
+    padding 20px
     border-radius border-radius border-radius 0 0
     box-sizing border-box
     color white
     font-weight 900
-    font-size 1.4em
+    font-size 1.2em
     background leading-color-2
   table
     width 100%
@@ -95,7 +95,7 @@ ul
     width 100%
     padding 10px 20px
     box-sizing border-box
-    font-size 1em
+    font-size 0.85em
     color leading-color-1
     transition-duration transition-duration
     &:hover
@@ -136,3 +136,6 @@ ul
     text-align center
     font-size 1.4em
     font-weight 700
+@media screen and (max-width: 920px)
+  .dashBoard
+    flex-direction column

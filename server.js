@@ -22,6 +22,11 @@ app.get('/api/recentBlocks', (req, res) => {
   res.send(JSON.stringify(blockchain.getRecentBlocks(6)))
 })
 
+app.get('/api/recentTransactions', (req, res) => {
+  res.setHeader('Content-type', 'application/json')
+  res.send(JSON.stringify(blockchain.getRecentTransactions(6)))
+})
+
 app.get('/api/stats', (req, res) => {
   res.setHeader('Content-type', 'application/json')
   res.send(JSON.stringify(blockchain.stats))

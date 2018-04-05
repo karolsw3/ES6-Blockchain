@@ -6,10 +6,7 @@ class Transaction {
     this.to = to
     this.amount = amount
     this.timestamp = new Date()
-  }
-
-  get hash () {
-    return sha256(this.from + this.to + this.amount + this.timestamp)
+    this.hash = sha256(this.from + this.to + this.amount + this.timestamp)
   }
 }
 

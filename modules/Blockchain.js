@@ -34,6 +34,7 @@ class Blockchain {
       {title: 'Overall transactions', content: this.blocks.map(block => { return block.transactions.length }).reduce((a, b) => a + b, 0)}
     ]
   }
+
   /**
    * Returns specified quantity of recent mined blocks
    */
@@ -43,6 +44,18 @@ class Blockchain {
       recentBlocks.push(this.blocks[i])
     }
     return recentBlocks
+  }
+
+  /**
+   * Returns specified quantity of recent transactions
+   */
+  getRecentTransactions (quantity) {
+    let recentTransactions = []
+    for (let i = this.blocks.length - 1; (i >= 0) && (recentTransactions.length < quantity); i--) {
+      let transactions = this.blocks[i].transactions.reverse()
+      recentTransactions = recentTransactions.concat(transactions)
+    }
+    return recentTransactions
   }
 
   /**
