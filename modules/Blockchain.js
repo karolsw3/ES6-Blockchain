@@ -47,6 +47,17 @@ class Blockchain {
   }
 
   /**
+   * Get specified block data searching by its hash
+   * @param {string} hash - Hash of the block which data is requested
+   */
+  getSpecifiedBlock (hash) {
+    for (let i = 0; i < this.blocks.length; i++) {
+      if (this.blocks[i].hash === hash) return this.blocks[i]
+    }
+    return false
+  }
+
+  /**
    * Returns specified quantity of recent transactions
    */
   getRecentTransactions (quantity) {
