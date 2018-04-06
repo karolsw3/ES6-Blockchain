@@ -7,6 +7,10 @@ body {
   color: #2d3142;
   font-size: 14px;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 ul {
   list-style-type: none;
 }
@@ -28,7 +32,7 @@ ul {
   transition-duration: 0.14s;
 }
 .menu__logo:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .menu__buttons {
   display: flex;
@@ -59,7 +63,7 @@ ul {
   transition-duration: 0.14s;
 }
 .button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .dashBoard {
   margin: 60px auto;
@@ -104,7 +108,7 @@ ul {
 }
 .table tr:hover {
   background: #fff;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .table tr:nth-child(odd) {
   background: #f4f4f4;
@@ -136,7 +140,7 @@ ul {
   transition-duration: 0.14s;
 }
 .statsPanel__stats:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .statsPanel__title {
   text-align: center;

@@ -10,7 +10,10 @@ blockchain._import(__dirname + '/public/blockchains/blockchain_01.json', () => {
 /**
 * BLOCKCHAIN EXPLORER
 */
+
 app.get('/', (req, res) => {
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+  console.log(ip + ' has requested main page')
   res.sendFile(path.join(__dirname + '/public/explorer/build/index.html'))
 })
 

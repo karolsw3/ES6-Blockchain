@@ -52,7 +52,9 @@ class Blockchain {
    */
   getSpecifiedBlock (hash) {
     for (let i = 0; i < this.blocks.length; i++) {
-      if (this.blocks[i].hash === hash) return this.blocks[i]
+      if (this.blocks[i].hash === hash) {
+        return this.blocks[i]
+      }
     }
     return false
   }

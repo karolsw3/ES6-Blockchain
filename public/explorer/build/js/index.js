@@ -24,7 +24,7 @@ Vue.component('recent-blocks-table', {
         <td> {{block.transactions.length}} </td>
         <td class="table__timestamp">{{block.timestamp}} </td>
         <td>
-          <div class="button"> Show </div>
+          <a :href="'/api/block/' + block.hash"><div class="button"> Show </div></a>
         </td>
       </tr>
     </table>
@@ -55,7 +55,7 @@ Vue.component('recent-transactions-table', {
         <td class="table__index">{{transaction.amount}} coins</td>
         <td> {{transaction.to}} </td>
         <td>
-          <div class="button"> Show </div>
+        <a :href="'/api/transaction/' + transaction.hash"><div class="button"> Show </div></a>
         </td>
       </tr>
     </table>
@@ -86,5 +86,5 @@ Vue.component('blockchain-stats', {
 })
 
 var app = new Vue({
-  el: '#dashBoard'
+  el: '#app'
 })
